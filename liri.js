@@ -9,17 +9,19 @@ var client = new Twitter(keys.twitterKeys);
 var action = process.argv[2];
 var result = process.argv[3];
 
-if (action == "my-tweets") {
-  twitter();
-}
-if (action == "spotify-this-song") {
-  spotify();
-}
-if (action == "movie-this") {
-  movie();
-}
-if (action == "do-what-it-says") {
-  doIt();
+switch(action) {
+  case 'my-tweets': 
+    twitter();
+    break;
+  case 'spotify-this-song':
+    music();
+    break;
+  case 'movie-this':
+    movie(process.argv[3]);
+    break;
+  case 'do-what-it-says':
+    doIt();
+    break;
 }
 
 //This will show the last 20 tweets.
@@ -43,8 +45,8 @@ function twitter() {
   });
 }
 
-//This shows the information about the song.
-function spotify() {
+//This shows the information of the song.
+function music() {
 
   if (!result) {
     result = "what's my age again"; //default song if song is not provided.
@@ -67,7 +69,7 @@ function spotify() {
   });
 }
 
-//This shoes the movie information.
+//This shows the information of the movie.
 function movie() {
 
   if (!result) {
@@ -122,7 +124,7 @@ function doIt() {
     }
 
     if (action == "spotify-this-song") {
-      spot();
+      music();
     }
     if (action == "movie-this") {
       movie();
