@@ -22,7 +22,7 @@ if (action == "do-what-it-says") {
   doIt();
 }
 
-//This will show the last 20 tweets
+//This will show the last 20 tweets.
 function twitter() {
 
   var params = {screen_name: "iRangy", count: 20};
@@ -43,10 +43,11 @@ function twitter() {
   });
 }
 
+//This shows the information about the song.
 function spotify() {
 
   if (!result) {
-    result = "what's my age again";
+    result = "what's my age again"; //default song if song is not provided.
   }
 
   spotify.search({ type: "track", query: result }, function(error, data) {
@@ -66,10 +67,11 @@ function spotify() {
   });
 }
 
+//This shoes the movie information.
 function movie() {
 
   if (!result) {
-    result = "Mr. Nobody";
+    result = "Mr. Nobody"; //default movie if movie is not provided.
   }
   
   var queryUrl = "http://www.omdbapi.com/?t=" + result +"&y=&plot=short&tomatoes=true&r=json";
